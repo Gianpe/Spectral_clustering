@@ -1,19 +1,90 @@
 # Spectral_clustering
 
-In questo capitolo applichiamo gli algoritmi spettrali su dati reali, ottenuti da un esperimento di microarray su oligonucleotidi di pazienti malati di leucemia.
-Il set di dati iniziale contiene campioni di midollo osseo relativi a 38 pazienti, con
-le relative intensità di espressione su 5000 geni. Abbiamo pre-processato questi dati
-sostituendo tutte le intensità di espressione minori di 20 con il valore 20. Possiamo
-dunque considerare i dati di interesse come una matrice A ∈ R
-M×N,dove ai j rappresenta l’attivita dell’ i-esimo gene nel j-esimo campione.
-Nel nostro caso M=5000 geni e N=38 pazienti, di cui 27 sono classificati come ALL
-(leucemia linfoblastica acuta) e 11 come AML(leucemia mieloide acuta). Per quanto
-riguarda i campioni affetti da ALL è possibile suddividerli in base al tipo di cellule in
-ALL-B e ALL-T.
-Costruiamo la matrice dei pesi W = A
-TA, dove wi j rappresenta una misura di somiglianza tra il campione i e il campione j. Il risultato che ci attendiamo dal clustering
-spettrale è quello di suddividere gli N pazienti in tre clusters che corrispondono alle
-tre diverse classificazioni della leucemia.
-In Fig.1 possiamo vedere il comportamento del vettore di Fielder nel raggruppare i
-tre clusters. Abbiamo calcolato e graficato il comportamento di quest’ultimo con
-MATLAB.
+% per compilarlo "xelatex tesi" PER 2 VOLTE!
+
+% QUESTO PEZZO NON DOVREBBE ESSERE MODIFICATO
+
+\documentclass[12pt,a4paper,oneside,openright]{book}
+\usepackage{packages} % inserisce tutti le macro necessarie per il 
+                        % funzionamento
+\usepackage{frontesp} % modificare questo file per i diplomi e se si ha
+                        % un solo correlatore
+
+% LE FIGURE VANNO INSERITE CON ``\includegraphics[width=xxxcm]{file}'' 
+% SENZA ESTENSIONE ALTRIMENTI NON SI RIESCE AD OTTENERE IL PDF!!!
+% per convertire le figure (ps o eps) in PDF usare 
+% epstopdf --outfile=pippo.pdf pippo.ps
+
+
+\setstretch{1.3}  %interlinea, mettere 1 per singola da usarsi per le bozze!!!
+
+\begin{document}
+
+% DA QUI INIZIA LA PARTE DA MODIFICARE PER INSERIRE IL PROPRIO LAVORO
+
+\title{Spectral clustering\\[5mm] e le sue applicazioni}
+\providecommand{\autore}{Gianmarco Pepi}                        %candidato
+\providecommand{\principaladviser}{Prof. Luca Gemignani}  %relatore
+
+\providecommand{\annoacc}{2018--19}
+\providecommand{\corso}{\uppercase{Biomedica}} % corso di laurea in ??
+
+
+
+% genera la prima pagina
+
+\titlep
+
+% indica l'inizio della parte introduttiva
+\frontmatter
+
+%   \tableofcontents
+   
+%   \listofalgorithms
+
+\clearpage
+
+% indica l'inizio della parte centrale
+\mainmatter
+      \input{introd} % attenzione! guardare introd.tex per vedere come e' fatto
+      \input{cap1}
+      \input{cap2}
+      
+
+% da qui in poi \chapter genera un'appendice
+\appendix
+\renewcommand{\chaptermark}[1]{\markboth{{\appendixname}\ \thechapter.\hspace{1em}#1}{}}
+
+     \input{app1}
+
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliografia}
+\bibliographystyle{abbrv}
+\bibliography{tesid,public} % ATTENZIONE se
+                            % non avete la variabile di ambiente BIBINPUTS
+                            % correttamente impostata non vi trova tesid.bib !!
+
+\cfoot{\emph{Finito di stampare il \today\/ utilizzando \LaTeXe}}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
