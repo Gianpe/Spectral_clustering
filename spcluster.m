@@ -24,10 +24,7 @@ L=(D^(-0.5))*(D-W)*(D^(-0.5));%LAPLACIANO
 [V,E] =eig(L);
 
 Fieldersvector=(D^(-0.5))*V(:,2);
-k=3;
-idx = spectralcluster(W,k,'distance','precomputed','LaplacianNormalization','symmetric');
-% E' un metodo alternativo per calcolare il vettore che fa da indice di
-% clustering al posto del vettore di fielder
+
 campioni=linspace(1,38,38);
 dati=[1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 ];
 
